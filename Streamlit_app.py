@@ -21,6 +21,9 @@ sms_img=[
     "debido a que ella nunca dejó de confiar en si 😌🙌."
 ]
 
+audio1=open("Music.mp3","rb")
+st.write("<REPRODUCEME 🎧🎵> [Gone, Gone, Gone - Phillip Phillips]")
+st.audio(audio1)
 
 # 3° Nombres de la página web.
 st.set_page_config(page_title = title_page_web, #Nombre de la pagina, sale arriba cuando se carga streamlit
