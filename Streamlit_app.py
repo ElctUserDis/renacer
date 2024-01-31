@@ -35,34 +35,38 @@ st.markdown("---")
 
 
 def main():
+    #4° Insertar música: Sin que esta se pare...
+    audio1=open("Music.mp3","rb")
+    st.write("<REPRODUCEME 🎧🎵> [Gone, Gone, Gone - Phillip Phillips]")
+    st.audio(audio1)
 
-    # Función para cargar y reproducir música en un hilo separado
-    import pygame
-    import threading
-    import time
-    def play_music(file_path, music_state):
-        pygame.mixer.init()
-        pygame.mixer.music.load(file_path)
-        while music_state["playing"]:
-            pygame.mixer.music.play()
-            time.sleep(pygame.mixer.music.get_length())
-        pygame.mixer.music.stop()
+    # # Función para cargar y reproducir música en un hilo separado
+    # import pygame
+    # import threading
+    # import time
+    # def play_music(file_path, music_state):
+    #     pygame.mixer.init()
+    #     pygame.mixer.music.load(file_path)
+    #     while music_state["playing"]:
+    #         pygame.mixer.music.play()
+    #         time.sleep(pygame.mixer.music.get_length())
+    #     pygame.mixer.music.stop()
 
-    # Ruta al archivo de música
-    music_file_path = "Music.mp3"
+    # # Ruta al archivo de música
+    # music_file_path = "Music.mp3"
 
-    # Crear un diccionario para almacenar el estado de la música
-    music_state = {"playing": False}
+    # # Crear un diccionario para almacenar el estado de la música
+    # music_state = {"playing": False}
 
-    # Almacenar el estado de la música en la sesión de Streamlit
-    if "music_state" not in st.session_state:
-        st.session_state.music_state = music_state
+    # # Almacenar el estado de la música en la sesión de Streamlit
+    # if "music_state" not in st.session_state:
+    #     st.session_state.music_state = music_state
 
-    # Iniciar la música al cargar la aplicación
-    if not st.session_state.music_state["playing"]:
-        st.session_state.music_state["playing"] = True
-        music_thread = threading.Thread(target=play_music, args=(music_file_path, st.session_state.music_state), daemon=True)
-        music_thread.start()
+    # # Iniciar la música al cargar la aplicación
+    # if not st.session_state.music_state["playing"]:
+    #     st.session_state.music_state["playing"] = True
+    #     music_thread = threading.Thread(target=play_music, args=(music_file_path, st.session_state.music_state), daemon=True)
+    #     music_thread.start()
 
     # Lista de rutas de imágenes
     image_paths = ["Imagen1.jpg", "Imagen2.jpg", "Imagen3.jpg", "Imagen4.jpg", "Imagen5.jpg",
