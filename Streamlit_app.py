@@ -18,7 +18,7 @@ sms_img=[
     "logro rodearse de buenas amigas 🎓,",
     "aunque siempre hay una mejor amiga 🫂.",
     "Lograron superar con creces un desafío importante✨,",
-    "debido a que ella nunca dejó de confiar en si 😌🙌."
+    "debido a que ella nunca dejó de confiar en sí 😌🙌."
 ]
 
 
