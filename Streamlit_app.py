@@ -1,7 +1,7 @@
 import streamlit as st
 from PIL import Image
 import time
-transition_duration = 5  # Duración de la transición en segundos
+transition_duration = 3  # Duración de la transición en segundos
 title_page_web='Reborn' #Título del Dashboard
 title_portada='SIEMPRE LUCHASTE POR SER LA MEJOR🚗🤠🚲🎥🎵' #Título del Dashboard
 
