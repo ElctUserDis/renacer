@@ -21,9 +21,7 @@ sms_img=[
     "debido a que ella nunca dejó de confiar en si 😌🙌."
 ]
 
-audio1=open("Music.mp3","rb")
-st.write("<REPRODUCEME 🎧🎵> [Gone, Gone, Gone - Phillip Phillips]")
-st.audio(audio1)
+
 
 # 3° Nombres de la página web.
 st.set_page_config(page_title = title_page_web, #Nombre de la pagina, sale arriba cuando se carga streamlit
@@ -34,35 +32,38 @@ st.markdown(f"<h1 style='text-align: center;'>{title_portada}</h1>", unsafe_allo
 st.markdown("---")
 
 
-# Función para cargar y reproducir música en un hilo separado
-import pygame
-import threading
-import time
-def play_music(file_path, music_state):
-    pygame.mixer.init()
-    pygame.mixer.music.load(file_path)
-    while music_state["playing"]:
-        pygame.mixer.music.play()
-        time.sleep(pygame.mixer.music.get_length())
-    pygame.mixer.music.stop()
 
-# Ruta al archivo de música
-music_file_path = "Music.mp3"
-
-# Crear un diccionario para almacenar el estado de la música
-music_state = {"playing": False}
-
-# Almacenar el estado de la música en la sesión de Streamlit
-if "music_state" not in st.session_state:
-    st.session_state.music_state = music_state
-
-# Iniciar la música al cargar la aplicación
-if not st.session_state.music_state["playing"]:
-    st.session_state.music_state["playing"] = True
-    music_thread = threading.Thread(target=play_music, args=(music_file_path, st.session_state.music_state), daemon=True)
-    music_thread.start()
 
 def main():
+
+    # Función para cargar y reproducir música en un hilo separado
+    import pygame
+    import threading
+    import time
+    def play_music(file_path, music_state):
+        pygame.mixer.init()
+        pygame.mixer.music.load(file_path)
+        while music_state["playing"]:
+            pygame.mixer.music.play()
+            time.sleep(pygame.mixer.music.get_length())
+        pygame.mixer.music.stop()
+
+    # Ruta al archivo de música
+    music_file_path = "Music.mp3"
+
+    # Crear un diccionario para almacenar el estado de la música
+    music_state = {"playing": False}
+
+    # Almacenar el estado de la música en la sesión de Streamlit
+    if "music_state" not in st.session_state:
+        st.session_state.music_state = music_state
+
+    # Iniciar la música al cargar la aplicación
+    if not st.session_state.music_state["playing"]:
+        st.session_state.music_state["playing"] = True
+        music_thread = threading.Thread(target=play_music, args=(music_file_path, st.session_state.music_state), daemon=True)
+        music_thread.start()
+
     # Lista de rutas de imágenes
     image_paths = ["Imagen1.jpg", "Imagen2.jpg", "Imagen3.jpg", "Imagen4.jpg", "Imagen5.jpg",
                 "Imagen6.jpg", "Imagen7.jpg", "Imagen8.jpg", "Imagen9.jpg", "Imagen10.jpg",
