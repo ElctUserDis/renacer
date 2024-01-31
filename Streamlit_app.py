@@ -37,7 +37,7 @@ st.markdown("---")
 def main():
     #4° Insertar música: Sin que esta se pare...
     audio1=open("Music.mp3","rb")
-    st.write("<REPRODUCEME 🎧🎵> [Gone, Gone, Gone - Phillip Phillips]")
+    st.write("<REPRODUCEME 🎧🎵")
     st.audio(audio1)
 
     # # Función para cargar y reproducir música en un hilo separado
